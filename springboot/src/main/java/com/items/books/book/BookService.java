@@ -48,16 +48,16 @@ public class BookService {
     }
 
     @Transactional
-    public void updateBook(Long id, String name, Integer price) {
-        Book book = bookRepository.findById(id).orElseThrow(() -> new IllegalStateException(
-                "book with id " + id + " dees not exists"));
-
-        if (name != null && name.length() > 0 && !Objects.equals(book.getName(), name)) {
-            book.setName(name);
-        }
-
-        if (price != null && price > 0 && !Objects.equals(book.getPrice(), price)) {
-            book.setPrice(price);
-        }
+    public void updateBook(Long id, Book book) {
+        bookRepository.findById(id)
+                .map(updatedBook -> {
+                    updatedBook.setName(book.getName());
+                    updatedBook.setPrice(book.getPrice());
+                    updatedBook.setPd(book.getPd());
+                    updatedBook.setIsbn(book.getIsbn());
+                    return bookRepository.save(updatedBook);
+                })
+                .orElseThrow(() -> new IllegalStateException(
+                        "book with id " + id + " dees not exists"));
     }
 }

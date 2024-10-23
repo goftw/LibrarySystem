@@ -48,9 +48,8 @@ public class BookController {
 
     @PutMapping(path = "{bookId}")
     public void updateBook(
-            @PathVariable("bookId") Long id,
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) Integer price) {
-        bookService.updateBook(id, name, price);
+            @RequestBody Book book,
+            @PathVariable("bookId") Long id) {
+        bookService.updateBook(id, book);
     }
 }
