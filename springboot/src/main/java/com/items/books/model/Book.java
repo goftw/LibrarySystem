@@ -1,4 +1,4 @@
-package com.items.books.book;
+package com.items.books.model;
 
 import java.time.LocalDate;
 import java.time.Period;

@@ -1,7 +1,6 @@
-package com.items.books.book;
+package com.items.books.service;
 
 import java.util.List;
-import java.util.Objects;
 import java.lang.IllegalStateException;
 import java.util.Optional;
 
@@ -9,7 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.items.books.exception.BookNotFoundException;
-
+import com.items.books.model.Book;
+import com.items.books.repository.BookRepository;
 import jakarta.transaction.Transactional;
 
 @Service

@@ -1,4 +1,4 @@
-package com.items.books.book;
+package com.items.books.controller;
 
 import java.util.List;
 
@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.items.books.model.Book;
+import com.items.books.service.BookService;
 
 @CrossOrigin("http://localhost:3000/")
 @RestController
