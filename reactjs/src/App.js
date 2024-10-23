@@ -1,12 +1,12 @@
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import NavBar from './layout/Navbar';
+import NavBar from './components/Navbar';
 import React from 'react';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AddBook from './users/AddBook';
-import EditBook from './users/EditBook';
-import ViewBook from './users/ViewBook';
+import AddBook from './pages/AddBook';
+import EditBook from './pages/EditBook';
+import ViewBook from './pages/ViewBook';
 
 function App() {
   return (
