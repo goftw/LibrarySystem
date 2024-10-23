@@ -19,9 +19,16 @@ export default function AddBook() {
   };
 
   const onSubmit = async (e) => {
-    e.preventDefault();
-    await axios.post('http://localhost:8080/api/items/books', book);
-    navigate('/');
+    try {
+      e.preventDefault();
+      await axios.post('http://localhost:8080/api/items/books', book);
+      navigate('/');
+    } catch (error) {
+      console.error('Error submitting the form:', error);
+      alert(
+        'There was an error submitting the form. Please check your input.(isbn taken)'
+      );
+    }
   };
   return (
     <div className="container">
@@ -29,6 +36,7 @@ export default function AddBook() {
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
           <h2 className="text-center m-4">Register Book</h2>
 
+          {/* // can be simplified to '<form onSubmit={onSubmit}>'*/}
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="mb-3">
               <label htmlFor="Name" className="form-label">
@@ -48,12 +56,13 @@ export default function AddBook() {
                 Price
               </label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 placeholder="Enter your price"
                 name="price"
                 value={price}
                 onChange={(e) => onInputChange(e)}
+                min={'0'}
               />
             </div>
             <div className="mb-3">
@@ -61,7 +70,7 @@ export default function AddBook() {
                 Publishing Date
               </label>
               <input
-                type="text"
+                type="date"
                 className="form-control"
                 placeholder="Enter your publishing date"
                 name="pd"

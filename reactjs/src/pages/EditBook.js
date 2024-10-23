@@ -60,12 +60,13 @@ export default function EditBook() {
                 Price
               </label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 placeholder="Enter your price"
                 name="price"
                 value={price}
                 onChange={(e) => onInputChange(e)}
+                min={'0'}
               />
             </div>
             <div className="mb-3">
@@ -73,7 +74,7 @@ export default function EditBook() {
                 Publishing Date
               </label>
               <input
-                type="text"
+                type="date"
                 className="form-control"
                 placeholder="Enter your Publishing Date"
                 name="pd"
